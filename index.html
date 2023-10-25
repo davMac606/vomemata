@@ -10,7 +10,7 @@
     <script src="https://accounts.google.com/gsi/client" async></script>
     <meta name="google-signin-client_id"
         content="1000504107698-mrnkse75fgucnr1jcdp0t2i3meh15gqq.apps.googleusercontent.com">
-        <script src="
+    <script src="
 https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js
 "></script>
 
@@ -74,13 +74,20 @@ https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js
                 document.getElementById("buttonDiv"),
                 {
                     theme: "outline",
-                    size: "large"
+                    size: "large",
+                    type: "standard",
+                    shape: "pill",
+                    theme: "outline",
+                    text: "continue_with",
+                    size: "large",
+                    logo_alignment: "center",
+                    width: "300"
                 }  // customization attributes
             );
             google.accounts.id.prompt(); // also display the One Tap dialog
         }
-        
-        function verificar (data){
+
+        function verificar(data) {
             var email = data.email;
             if (email == "cl201288@g.unicamp.br") {
                 window.location = '/home.html';
