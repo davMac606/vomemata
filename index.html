@@ -10,6 +10,10 @@
     <script src="https://accounts.google.com/gsi/client" async></script>
     <meta name="google-signin-client_id"
         content="1000504107698-mrnkse75fgucnr1jcdp0t2i3meh15gqq.apps.googleusercontent.com">
+        <script src="
+https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js
+"></script>
+
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
@@ -49,7 +53,7 @@
     <div id="title">Faça o login usando o botão abaixo: </div>
 
     <div id="buttonDiv">
-        
+
     </div>
 
 
@@ -58,6 +62,7 @@
         function handleCredentialResponse(response) {
             const data = jwt_decode(response.credential)
             console.log(data)
+            verificar(data)
         }
 
         window.onload = function () {
@@ -73,6 +78,13 @@
                 }  // customization attributes
             );
             google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+        
+        function verificar (data){
+            var email = data.email;
+            if (email == "cl201288@g.unicamp.br") {
+                window.location = '/home.html';
+            }
         }
     </script>
 
